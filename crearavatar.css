@@ -1,0 +1,76 @@
+body {
+  background-color: #fef5e7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #4c2e0e;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.tv-screen {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+label, p {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.info {
+  font-weight: normal;
+  color: #c0392b;
+}
+
+input[type="file"] {
+  margin: 10px 0;
+}
+
+.preview {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.preview img {
+  max-width: 200px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button, input[type="submit"] {
+  background-color: #4ba494;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+audio {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+input[type="file"] {
+  margin-top: 10px;
+}

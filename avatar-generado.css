@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff7ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.phone-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phone-container {
+  position: relative;
+  width: 300px; /* marco exterior */
+  height: 500px;
+}
+
+.phone-video {
+  position: absolute;
+  top: 24.5%;         /* baja ligeramente el video */
+  left: 8%;          /* ajusta a la derecha */
+  width: 85%;        /* ancho visible dentro del marco */
+  height: 85%;       /* alto visible dentro del marco */
+  object-fit: cover;
+  border-radius: 14px;
+  z-index: 1;
+}
+
+.phone-frame {
+  width: 180%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  transform: translateX(-115px);
+}
+
