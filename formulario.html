@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulario</title>
+  <link rel="stylesheet" href="styles/formulario.css" />
+</head>
+<body>
+  <div class="form-container">
+    <form id="formulario">
+      <h2>Información para crear tu asistente</h2>
+      <div class="form-grid">
+        <div class="campo">
+          <label for="nombreUsuario">Tu nombre:</label>
+          <input type="text" name="nombreUsuario" id="nombreUsuario" required>
+        </div>
+        <div class="campo">
+          <label for="nombreAdulto">Nombre del adulto mayor:</label>
+          <input type="text" name="nombreAdulto" id="nombreAdulto" required>
+        </div>
+
+        <div class="campo">
+          <label for="apodoAdulto">¿Cómo te refieres a él o ella?:</label>
+          <input type="text" name="apodoAdulto" id="apodoAdulto" required>
+        </div>
+        <div class="campo">
+          <label for="relacion">Relación contigo:</label>
+          <input type="text" name="relacion" id="relacion" required>
+        </div>
+
+        <div class="campo">
+          <label for="edad">Edad:</label>
+          <input type="number" name="edad" id="edad" required>
+        </div>
+        <div class="campo">
+          <label for="medicamentos">Medicamentos que toma:</label>
+          <input type="text" name="medicamentos" id="medicamentos" placeholder="Ej: Aspirina, Losartán" required>
+        </div>
+
+        <div class="campo">
+          <label for="horarios">Días y horarios en que debe tomarlos:</label>
+          <select name="horarios" id="horarios" required>
+            <option value="">Selecciona una opción</option>
+            <option value="lunes 08:00">Lunes - 08:00</option>
+            <option value="lunes 20:00">Lunes - 20:00</option>
+            <option value="martes 08:00">Martes - 08:00</option>
+            <option value="martes 20:00">Martes - 20:00</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="actividades">Actividades favoritas:</label>
+          <input type="text" name="actividades" id="actividades" placeholder="Ej: Tejer, ver televisión, pasear" required>
+        </div>
+
+        <div class="campo">
+          <label for="mensajes">¿Qué tipo de mensajes le hacen sentir bien?:</label>
+          <textarea name="mensajes" id="mensajes" placeholder="Ej: Mensajes de cariño, apoyo, recordatorios con humor..." required></textarea>
+        </div>
+      </div>
+
+      <div class="boton">
+        <button type="submit">Guardar y continuar</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const datos = {};
+      formData.forEach((value, key) => {
+        datos[key] = value;
+      });
+
+      localStorage.setItem('formularioUsuario', JSON.stringify(datos));
+      window.location.href = 'crear-avatar.html';
+    });
+  </script>
+</body>
+</html>

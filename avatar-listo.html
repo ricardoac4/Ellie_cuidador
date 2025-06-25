@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Avatar Listo</title>
+  <link rel="stylesheet" href="styles/crearavatar.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #fef5e7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .tv-screen {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 600px;
+    }
+    h2 {
+      color: #5c3900;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    .btn {
+      background-color: #1995a1;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background-color: #157b87;
+    }
+  </style>
+</head>
+<body>
+  <div class="tv-screen">
+    <h2>¡Tu avatar está listo!</h2>
+    <p>¿Quieres conocerlo?</p>
+    <button class="btn" onclick="verAvatar()">Ver avatar</button>
+  </div>
+
+  <script>
+    function verAvatar() {
+      const videoUrl = localStorage.getItem('vozAvatar') || localStorage.getItem('videoAvatar');
+      if (videoUrl) {
+        window.location.href = "avatar-generado.html";
+      } else {
+        alert("Aún no hay avatar disponible.");
+      }
+    }
+  </script>
+</body>
+</html>

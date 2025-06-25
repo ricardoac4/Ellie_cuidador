@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crear tu Avatar</title>
+  <link rel="stylesheet" href="styles/crearavatar.css" />
+</head>
+<body>
+  <div class="tv-screen">
+    <h2 id="saludo">Ahora crearemos tu avatar</h2>
+
+    <p><strong>Foto</strong> <span class="info">(Para que pueda generar tu avatar)</span></p>
+    <input type="file" accept="image/*" id="fotoInput" onchange="mostrarFoto()" />
+    <div class="preview">
+      <img id="fotoPreview" src="" style="display:none; max-width: 180px; border-radius: 10px; margin: 10px auto;" />
+    </div>
+
+    <p><strong>Voz</strong> <span class="info">(Graba tu voz o sube un archivo de audio)</span></p>
+
+    <div>
+      <button type="button" onclick="iniciarGrabacion()">🎙️ Grabar voz</button>
+      <button type="button" onclick="detenerGrabacion()" disabled id="stopBtn">⏹️ Detener</button>
+    </div>
+
+    <div style="margin-top: 10px;">
+      <label for="audioInput"><strong>O sube un archivo MP3/WAV</strong></label>
+      <input type="file" accept="audio/*" id="audioInput" onchange="cargarAudio()" />
+    </div>
+
+    <audio id="audioPreview" controls style="display:none; margin-top: 10px;"></audio>
+
+    <button onclick="continuar()" class="btn">Continuar</button>
+  </div>
+
+  <script>
+    let mediaRecorder;
+    let audioChunks = [];
+
+    function mostrarFoto() {
+      const input = document.getElementById('fotoInput');
+      const preview = document.getElementById('fotoPreview');
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = "block";
+          localStorage.setItem('fotoAvatar', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    function iniciarGrabacion() {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+          mediaRecorder = new MediaRecorder(stream);
+          mediaRecorder.start();
+          audioChunks = [];
+
+          mediaRecorder.addEventListener("dataavailable", event => {
+            audioChunks.push(event.data);
+          });
+
+          mediaRecorder.addEventListener("stop", () => {
+            const audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            const audio = document.getElementById('audioPreview');
+            audio.src = audioUrl;
+            audio.style.display = "block";
+            localStorage.setItem('vozAvatar', audioUrl);
+          });
+
+          document.getElementById("stopBtn").disabled = false;
+        });
+    }
+
+    function detenerGrabacion() {
+      mediaRecorder.stop();
+      document.getElementById("stopBtn").disabled = true;
+    }
+
+    function cargarAudio() {
+      const input = document.getElementById('audioInput');
+      const audio = document.getElementById('audioPreview');
+
+      if (input.files.length > 0) {
+        const audioFile = input.files[0];
+        const audioUrl = URL.createObjectURL(audioFile);
+        audio.src = audioUrl;
+        audio.style.display = "block";
+        localStorage.setItem('vozAvatar', audioUrl);
+      }
+    }
+
+    function continuar() {
+      const imagenInput = document.getElementById('fotoInput');
+      const audioPreview = document.getElementById('audioPreview');
+
+      if (!imagenInput.files[0]) {
+        alert("Debes subir una imagen.");
+        return;
+      }
+
+      if (!audioPreview.src) {
+        alert("Debes grabar tu voz o subir un archivo de audio.");
+        return;
+      }
+
+      // Guardar nombre de archivo también si se quiere
+      localStorage.setItem('videoGenerado', 'true');
+
+      // Redirigir
+      window.location.href = "avatar-listo.html";
+    }
+
+    // Personalizar saludo con nombre del cuidador
+    window.onload = () => {
+      const nombre = localStorage.getItem("nombreCuidador");
+      if (nombre) {
+        document.getElementById("saludo").innerText = `Ya ${nombre}, es hora de crear tu avatar.`;
+      }
+    };
+  </script>
+</body>
+</html>
+

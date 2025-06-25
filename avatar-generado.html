@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tu Avatar Está Listo</title>
+  <link rel="stylesheet" href="styles/avatar-generado.css" />
+</head>
+<body>
+  <div class="phone-wrapper">
+    <div class="phone-container">
+  <p id="mensaje" class="mensaje-avatar"></p>
+
+
+      <video 
+        class="phone-video" 
+        src="assets/avatar_listo.mp4"
+        autoplay 
+        muted 
+        playsinline 
+        loop
+      ></video>
+
+      <button id="activarSonido">🔊 Activar sonido</button>
+      <img src="assets/phone-frame.png" alt="Celular" class="phone-frame" />
+    </div>
+  </div>
+
+  <script>
+    // Mostrar el nombre correcto del cuidador
+    const datos = JSON.parse(localStorage.getItem('formularioUsuario'));
+    const mensaje = document.getElementById('mensaje');
+    if (datos && datos.nombreUsuario) {
+      mensaje.textContent = `¡          Avatar de ${datos.nombreUsuario}!`;
+    }
+
+    // Controlar el botón de sonido
+    const botonSonido = document.getElementById('activarSonido');
+    const video = document.querySelector('.phone-video');
+
+    botonSonido.addEventListener('click', () => {
+      video.muted = false;
+      video.volume = 1.0;
+      video.play();
+      botonSonido.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
