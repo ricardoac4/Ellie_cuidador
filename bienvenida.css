@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  background-color: #fdf4e3;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tv-screen {
+  background-color: #fff;
+  width: 80%;
+  max-width: 900px;
+  padding: 60px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.bienvenida-box .mensaje {
+  font-size: 32px;
+  color: #5a3b1e;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+.btn {
+  background-color: #4ba494;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #3b867a;
+}
