@@ -1,97 +1,84 @@
-body {
-  background-color: #fff6e5;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario</title>
+  <link rel="stylesheet" href="styles/formulario.css?v=2" />
+</head>
+<body>
+  <div class="form-container">
+    <form id="formulario">
+      <h2>Información para crear tu asistente</h2>
+      <div class="form-grid">
+        <div class="campo">
+          <label for="nombreUsuario">Tu nombre:</label>
+          <input type="text" name="nombreUsuario" id="nombreUsuario" required>
+        </div>
+        <div class="campo">
+          <label for="nombreAdulto">Nombre del adulto mayor:</label>
+          <input type="text" name="nombreAdulto" id="nombreAdulto" required>
+        </div>
 
-.form-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-}
+        <div class="campo">
+          <label for="apodoAdulto">¿Cómo te refieres a él o ella?:</label>
+          <input type="text" name="apodoAdulto" id="apodoAdulto" required>
+        </div>
+        <div class="campo">
+          <label for="relacion">Relación contigo:</label>
+          <input type="text" name="relacion" id="relacion" required>
+        </div>
 
-h2 {
-  text-align: center;
-  color: #5c3d14;
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
-}
+        <div class="campo">
+          <label for="edad">Edad:</label>
+          <input type="number" name="edad" id="edad" required>
+        </div>
+        <div class="campo">
+          <label for="medicamentos">Medicamentos que toma:</label>
+          <input type="text" name="medicamentos" id="medicamentos" placeholder="Ej: Aspirina, Losartán" required>
+        </div>
 
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem 2rem;
-}
+        <div class="campo">
+          <label for="horarios">Días y horarios en que debe tomarlos:</label>
+          <select name="horarios" id="horarios" required>
+            <option value="">Selecciona una opción</option>
+            <option value="lunes 08:00">Lunes - 08:00</option>
+            <option value="lunes 20:00">Lunes - 20:00</option>
+            <option value="martes 08:00">Martes - 08:00</option>
+            <option value="martes 20:00">Martes - 20:00</option>
+          </select>
+        </div>
 
-.campo {
-  display: flex;
-  flex-direction: column;
-}
+        <div class="campo">
+          <label for="actividades">Actividades favoritas:</label>
+          <input type="text" name="actividades" id="actividades" placeholder="Ej: Tejer, ver televisión, pasear" required>
+        </div>
 
-label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #5c3d14;
-}
+        <div class="campo">
+          <label for="mensajes">¿Qué tipo de mensajes le hacen sentir bien?:</label>
+          <textarea name="mensajes" id="mensajes" placeholder="Ej: Mensajes de cariño, apoyo, recordatorios con humor..." required></textarea>
+        </div>
+      </div>
 
-input, select, textarea {
-  padding: 0.9rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-}
+      <div class="boton">
+        <button type="submit">Guardar y continuar</button>
+      </div>
+    </form>
+  </div>
 
-textarea {
-  resize: vertical;
-  min-height: 80px;
-}
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function(e) {
+      e.preventDefault();
 
-.boton {
-  grid-column: 1 / -1;
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
+      const formData = new FormData(this);
+      const datos = {};
+      formData.forEach((value, key) => {
+        datos[key] = value;
+      });
 
-button {
-  background-color: #007bdb;
-  color: white;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #005fa3;
-}
-
-/* 🔁 Responsivo para celulares */
-@media (max-width: 768px) {
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-container {
-    padding: 1.5rem 1rem;
-    margin: 1rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-}
-
-
-button:hover {
-  background-color: #005fa3;
-}
-
+      localStorage.setItem('formularioUsuario', JSON.stringify(datos));
+      window.location.href = 'crear-avatar.html';
+    });
+  </script>
+</body>
+</html>
