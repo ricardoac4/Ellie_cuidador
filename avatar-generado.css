@@ -3,9 +3,28 @@ body {
   padding: 0;
   background-color: #fff7ea;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.avatar-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar-header h2 {
+  font-size: 22px;
+  color: #4c2e0e;
+  margin: 0;
+}
+
+.submensaje {
+  font-size: 16px;
+  color: #555;
+  margin-top: 5px;
 }
 
 .phone-wrapper {
@@ -16,16 +35,16 @@ body {
 
 .phone-container {
   position: relative;
-  width: 300px; /* marco exterior */
+  width: 300px;
   height: 500px;
 }
 
 .phone-video {
   position: absolute;
-  top: 24.5%;         /* baja ligeramente el video */
-  left: 8%;          /* ajusta a la derecha */
-  width: 85%;        /* ancho visible dentro del marco */
-  height: 85%;       /* alto visible dentro del marco */
+  top: 20%;
+  left: 3%;
+  width: 94%;
+  height: 94%;
   object-fit: cover;
   border-radius: 14px;
   z-index: 1;
@@ -39,3 +58,14 @@ body {
   transform: translateX(-115px);
 }
 
+#activarSonido {
+  margin-top: 12px;
+  background-color: #1995a1;
+  color: white;
+  padding: 10px 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 3;
+}

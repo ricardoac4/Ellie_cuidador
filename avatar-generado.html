@@ -2,15 +2,17 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tu Avatar Está Listo</title>
   <link rel="stylesheet" href="avatar-generado.css" />
 </head>
 <body>
   <div class="phone-wrapper">
+    <div class="avatar-header">
+      <h2 id="mensaje">¡Avatar de Carla!</h2>
+      <p class="submensaje">Tu asistente está listo para ayudarte 🎉</p>
+    </div>
     <div class="phone-container">
-  <p id="mensaje" class="mensaje-avatar"></p>
-
-
       <video 
         class="phone-video" 
         src="avatar_listo.mp4"
@@ -26,14 +28,12 @@
   </div>
 
   <script>
-    // Mostrar el nombre correcto del cuidador
     const datos = JSON.parse(localStorage.getItem('formularioUsuario'));
     const mensaje = document.getElementById('mensaje');
     if (datos && datos.nombreUsuario) {
-      mensaje.textContent = `¡          Avatar de ${datos.nombreUsuario}!`;
+      mensaje.textContent = `¡Avatar de ${datos.nombreUsuario}!`;
     }
 
-    // Controlar el botón de sonido
     const botonSonido = document.getElementById('activarSonido');
     const video = document.querySelector('.phone-video');
 
