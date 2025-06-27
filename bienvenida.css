@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   background-color: #fdf4e3;
   font-family: 'Arial', sans-serif;
   display: flex;
@@ -10,29 +11,30 @@ body {
 
 .tv-screen {
   background-color: #fff;
-  width: 80%;
-  max-width: 900px;
-  padding: 60px;
+  width: 90%;
+  max-width: 400px;
+  padding: 40px 20px;
   text-align: center;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
 .bienvenida-box .mensaje {
-  font-size: 32px;
+  font-size: 1.6rem;
   color: #5a3b1e;
-  margin-bottom: 40px;
-  line-height: 1.4;
+  margin-bottom: 2rem;
+  line-height: 1.5;
 }
 
 .btn {
   background-color: #4ba494;
   color: white;
   border: none;
-  padding: 14px 30px;
-  font-size: 18px;
-  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  border-radius: 10px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
