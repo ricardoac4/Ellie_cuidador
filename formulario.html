@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulario</title>
-  <link rel="stylesheet" href="formulario.css" />
+  <link rel="stylesheet" href="formulario.css?v=2" />
 </head>
 <body>
   <div class="form-container">
@@ -39,14 +39,23 @@
         </div>
 
         <div class="campo">
-          <label for="horarios">Días y horarios en que debe tomarlos:</label>
-          <select name="horarios" id="horarios" required>
-            <option value="">Selecciona una opción</option>
-            <option value="lunes 08:00">Lunes - 08:00</option>
-            <option value="lunes 20:00">Lunes - 20:00</option>
-            <option value="martes 08:00">Martes - 08:00</option>
-            <option value="martes 20:00">Martes - 20:00</option>
+          <label for="dia">Día de toma del medicamento:</label>
+          <select name="dia" id="dia" required>
+            <option value="">Selecciona un día</option>
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miércoles">Miércoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sábado">Sábado</option>
+            <option value="Domingo">Domingo</option>
+            <option value="Todos los días">Todos los días</option>
           </select>
+        </div>
+
+        <div class="campo">
+          <label for="hora">Hora de toma:</label>
+          <input type="time" name="hora" id="hora" required>
         </div>
 
         <div class="campo">
@@ -55,8 +64,15 @@
         </div>
 
         <div class="campo">
-          <label for="mensajes">¿Qué tipo de mensajes le hacen sentir bien?:</label>
-          <textarea name="mensajes" id="mensajes" placeholder="Ej: Mensajes de cariño, apoyo, recordatorios con humor..." required></textarea>
+          <label>¿Qué tipo de mensajes le hacen sentir bien?</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="mensajes" value="mensajes de cariño"> Mensajes de cariño</label>
+            <label><input type="checkbox" name="mensajes" value="mensajes de apoyo"> Mensajes de apoyo</label>
+            <label><input type="checkbox" name="mensajes" value="recordatorios con humor"> Recordatorios con humor</label>
+            <label><input type="checkbox" name="mensajes" value="recordatorios firmes"> Recordatorios firmes</label>
+            <label><input type="checkbox" name="mensajes" value="chistes"> Chistes</label>
+            <label><input type="checkbox" name="mensajes" value="frases motivacionales"> Frases motivacionales</label>
+          </div>
         </div>
       </div>
 
@@ -73,7 +89,12 @@
       const formData = new FormData(this);
       const datos = {};
       formData.forEach((value, key) => {
-        datos[key] = value;
+        if (datos[key]) {
+          if (!Array.isArray(datos[key])) datos[key] = [datos[key]];
+          datos[key].push(value);
+        } else {
+          datos[key] = value;
+        }
       });
 
       localStorage.setItem('formularioUsuario', JSON.stringify(datos));
