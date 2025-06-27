@@ -8,9 +8,9 @@ body {
 }
 
 .tv-screen {
-  max-width: 800px;
+  max-width: 600px;
   margin: auto;
-  padding: 30px;
+  padding: 30px 20px;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -19,7 +19,7 @@ body {
 
 h2 {
   margin-bottom: 30px;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -55,9 +55,14 @@ button, input[type="submit"] {
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  margin: 10px;
+  margin: 10px 5px;
   cursor: pointer;
   font-size: 16px;
+}
+
+button.stop {
+  background-color: #ccc;
+  color: black;
 }
 
 button:disabled {
@@ -71,6 +76,13 @@ audio {
   max-width: 400px;
 }
 
-input[type="file"] {
-  margin-top: 10px;
+.seccion {
+  margin-bottom: 20px;
+}
+
+.botones-grabacion {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
