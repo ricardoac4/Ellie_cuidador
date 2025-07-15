@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +23,6 @@
       ></video>
 
       <button id="activarSonido">🔊 Enable sound</button>
-      <img src="assets/phone-frame.png" alt="Celular" class="phone-frame" />
     </div>
   </div>
 
@@ -31,7 +30,7 @@
     const datos = JSON.parse(localStorage.getItem('formularioUsuario'));
     const mensaje = document.getElementById('mensaje');
     if (datos && datos.nombreUsuario) {
-      mensaje.textContent = `¡Avatar de ${datos.nombreUsuario}!`;
+      mensaje.textContent = `¡${datos.nombreUsuario}'Avatar!`;
     }
 
     const botonSonido = document.getElementById('activarSonido');
