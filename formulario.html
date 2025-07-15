@@ -3,81 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formulario</title>
+  <title>Form</title>
   <link rel="stylesheet" href="formulario.css?v=2" />
 </head>
 <body>
   <div class="form-container">
     <form id="formulario">
-      <h2>Información para crear tu asistente</h2>
+      <h2>Information to create your assistant</h2>
       <div class="form-grid">
         <div class="campo">
-          <label for="nombreUsuario">Tu nombre:</label>
+          <label for="nombreUsuario">Your name:</label>
           <input type="text" name="nombreUsuario" id="nombreUsuario" required>
         </div>
         <div class="campo">
-          <label for="nombreAdulto">Nombre del adulto mayor:</label>
+          <label for="nombreAdulto">Name of the elder:</label>
           <input type="text" name="nombreAdulto" id="nombreAdulto" required>
         </div>
 
         <div class="campo">
-          <label for="apodoAdulto">¿Cómo te refieres a él o ella?:</label>
+          <label for="apodoAdulto">How do you tell him or her?:</label>
           <input type="text" name="apodoAdulto" id="apodoAdulto" required>
         </div>
         <div class="campo">
-          <label for="relacion">Relación contigo:</label>
+          <label for="relacion">Relationship with you:</label>
           <input type="text" name="relacion" id="relacion" required>
         </div>
 
         <div class="campo">
-          <label for="edad">Edad:</label>
+          <label for="edad">Age:</label>
           <input type="number" name="edad" id="edad" required>
         </div>
         <div class="campo">
-          <label for="medicamentos">Medicamentos que toma:</label>
+          <label for="medicamentos">Medications he/she is taking:</label>
           <input type="text" name="medicamentos" id="medicamentos" placeholder="Ej: Aspirina, Losartán" required>
         </div>
 
         <div class="campo">
-          <label for="dia">Día de toma del medicamento:</label>
+          <label for="dia">When he/she takes the medicine:</label>
           <select name="dia" id="dia" required>
-            <option value="">Selecciona un día</option>
-            <option value="Lunes">Lunes</option>
-            <option value="Martes">Martes</option>
-            <option value="Miércoles">Miércoles</option>
-            <option value="Jueves">Jueves</option>
-            <option value="Viernes">Viernes</option>
-            <option value="Sábado">Sábado</option>
-            <option value="Domingo">Domingo</option>
-            <option value="Todos los días">Todos los días</option>
+            <option value="">Select a day</option>
+            <option value="Lunes">Monday</option>
+            <option value="Martes">Tuesday</option>
+            <option value="Miércoles">Wednesday</option>
+            <option value="Jueves">Thrusday</option>
+            <option value="Viernes">Friday</option>
+            <option value="Sábado">Saturday</option>
+            <option value="Domingo">Sunday</option>
+            <option value="Todos los días">Everyday</option>
           </select>
         </div>
 
         <div class="campo">
-          <label for="hora">Hora de toma:</label>
+          <label for="hora">Hour?:</label>
           <input type="time" name="hora" id="hora" required>
         </div>
 
         <div class="campo">
-          <label for="actividades">Actividades favoritas:</label>
+          <label for="actividades">Favorites Activities:</label>
           <input type="text" name="actividades" id="actividades" placeholder="Ej: Tejer, ver televisión, pasear" required>
         </div>
 
         <div class="campo">
-          <label>¿Qué tipo de mensajes le hacen sentir bien?</label>
+          <label>What kind of messages make him/her feel good?</label>
           <div class="checkbox-group">
-            <label><input type="checkbox" name="mensajes" value="mensajes de cariño"> Mensajes de cariño</label>
-            <label><input type="checkbox" name="mensajes" value="mensajes de apoyo"> Mensajes de apoyo</label>
-            <label><input type="checkbox" name="mensajes" value="recordatorios con humor"> Recordatorios con humor</label>
-            <label><input type="checkbox" name="mensajes" value="recordatorios firmes"> Recordatorios firmes</label>
-            <label><input type="checkbox" name="mensajes" value="chistes"> Chistes</label>
-            <label><input type="checkbox" name="mensajes" value="frases motivacionales"> Frases motivacionales</label>
+            <label><input type="checkbox" name="mensajes" value="mensajes de cariño"> Messages of love</label>
+            <label><input type="checkbox" name="mensajes" value="mensajes de apoyo"> Messages of support</label>
+            <label><input type="checkbox" name="mensajes" value="recordatorios con humor">Jokes</label>
+            <label><input type="checkbox" name="mensajes" value="recordatorios firmes"> Interesting news</label>
+            <label><input type="checkbox" name="mensajes" value="frases motivacionales"> Motivational quotes</label>
           </div>
         </div>
       </div>
 
       <div class="boton">
-        <button type="submit">Guardar y continuar</button>
+        <button type="submit">Save and continue</button>
       </div>
     </form>
   </div>
