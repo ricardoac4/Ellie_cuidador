@@ -20,11 +20,16 @@
     </div>
 
     <div class="seccion">
-      <p><strong>Voice</strong> <span class="info">(Record your voice)</span></p>
+      <p><strong>Voice</strong> <span class="info">(Record your voice or upload an audio file)</span></p>
       <div class="botones-grabacion">
         <button type="button" onclick="iniciarGrabacion()">🎙️ Record your voice</button>
         <button type="button" onclick="detenerGrabacion()" disabled id="stopBtn" class="stop">⏹️ Stop</button>
       </div>
+    </div>
+
+    <div class="seccion">
+      <label for="audioInput"><strong>Or upload an MP3/WAV file</strong></label>
+      <input type="file" accept="audio/*" id="audioInput" onchange="cargarAudio()" />
     </div>
 
     <audio id="audioPreview" controls style="display:none;"></audio>
@@ -79,6 +84,19 @@
       document.getElementById("stopBtn").disabled = true;
     }
 
+    function cargarAudio() {
+      const input = document.getElementById('audioInput');
+      const audio = document.getElementById('audioPreview');
+
+      if (input.files.length > 0) {
+        const audioFile = input.files[0];
+        const audioUrl = URL.createObjectURL(audioFile);
+        audio.src = audioUrl;
+        audio.style.display = "block";
+        localStorage.setItem('vozAvatar', audioUrl);
+      }
+    }
+
     function continuar() {
       const imagenInput = document.getElementById('fotoInput');
       const audioPreview = document.getElementById('audioPreview');
@@ -89,7 +107,7 @@
       }
 
       if (!audioPreview.src) {
-        alert("You must record your voice.");
+        alert("You must record your voice or upload an audio file.");
         return;
       }
 
@@ -103,6 +121,10 @@
         document.getElementById("saludo").innerText = "Alright Carla, it’s time to create your avatar.";
       }
     };
+  </script>
+</body>
+</html>
+
   </script>
 </body>
 </html>
