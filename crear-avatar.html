@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,12 +8,12 @@
 </head>
 <body>
   <div class="tv-screen">
-    <h2 id="saludo">Ya Carla, it’s time to create your avatar.</h2>
+    <h2 id="saludo">Alright Carla, it’s time to create your avatar.</h2>
 
     <div class="seccion">
       <p><strong>Photo</strong> <span class="info">(So you can generate your avatar)</span></p>
       <input type="file" accept="image/*" id="fotoInput" capture="environment" onchange="mostrarFoto()" style="display:none;" />
-      <button type="button" onclick="document.getElementById('fotoInput').click()">📷 Take selfie</button>
+      <button type="button" onclick="document.getElementById('fotoInput').click()">📷 Take a selfie</button>
       <div class="preview">
         <img id="fotoPreview" src="" style="display:none;" />
       </div>
@@ -22,7 +22,7 @@
     <div class="seccion">
       <p><strong>Voice</strong> <span class="info">(Record your voice or upload an audio file)</span></p>
       <div class="botones-grabacion">
-        <button type="button" onclick="iniciarGrabacion()">🎙️ Record your voice voz</button>
+        <button type="button" onclick="iniciarGrabacion()">🎙️ Record your voice</button>
         <button type="button" onclick="detenerGrabacion()" disabled id="stopBtn" class="stop">⏹️ Stop</button>
       </div>
     </div>
@@ -102,12 +102,12 @@
       const audioPreview = document.getElementById('audioPreview');
 
       if (!imagenInput.files[0]) {
-        alert("Debes subir una imagen.");
+        alert("You must upload a photo.");
         return;
       }
 
       if (!audioPreview.src) {
-        alert("Debes grabar tu voz o subir un archivo de audio.");
+        alert("You must record your voice or upload an audio file.");
         return;
       }
 
@@ -118,9 +118,13 @@
     window.onload = () => {
       const nombre = localStorage.getItem("nombreCuidador");
       if (nombre) {
-        document.getElementById("saludo").innerText = "Ya Carla, es hora de crear tu avatar.";
+        document.getElementById("saludo").innerText = "Alright Carla, it’s time to create your avatar.";
       }
     };
+  </script>
+</body>
+</html>
+
   </script>
 </body>
 </html>
