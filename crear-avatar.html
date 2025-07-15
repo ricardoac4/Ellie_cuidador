@@ -26,12 +26,6 @@
         <button type="button" onclick="detenerGrabacion()" disabled id="stopBtn" class="stop">⏹️ Stop</button>
       </div>
     </div>
-
-    <div class="seccion">
-      <label for="audioInput"><strong>Or upload an MP3/WAV file</strong></label>
-      <input type="file" accept="audio/*" id="audioInput" onchange="cargarAudio()" />
-    </div>
-
     <audio id="audioPreview" controls style="display:none;"></audio>
 
     <button onclick="continuar()" class="btn">Continue</button>
