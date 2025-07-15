@@ -3,38 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crear tu Avatar</title>
+  <title>Create your own avatar</title>
   <link rel="stylesheet" href="crearavatar.css" />
 </head>
 <body>
   <div class="tv-screen">
-    <h2 id="saludo">Ya Carla, es hora de crear tu avatar.</h2>
+    <h2 id="saludo">Ya Carla, it’s time to create your avatar.</h2>
 
     <div class="seccion">
-      <p><strong>Foto</strong> <span class="info">(Para que pueda generar tu avatar)</span></p>
+      <p><strong>Photo</strong> <span class="info">(So you can generate your avatar)</span></p>
       <input type="file" accept="image/*" id="fotoInput" capture="environment" onchange="mostrarFoto()" style="display:none;" />
-      <button type="button" onclick="document.getElementById('fotoInput').click()">📷 Tomar foto</button>
+      <button type="button" onclick="document.getElementById('fotoInput').click()">📷 Take selfie</button>
       <div class="preview">
         <img id="fotoPreview" src="" style="display:none;" />
       </div>
     </div>
 
     <div class="seccion">
-      <p><strong>Voz</strong> <span class="info">(Graba tu voz o sube un archivo de audio)</span></p>
+      <p><strong>Voice</strong> <span class="info">(Record your voice or upload an audio file)</span></p>
       <div class="botones-grabacion">
-        <button type="button" onclick="iniciarGrabacion()">🎙️ Grabar voz</button>
-        <button type="button" onclick="detenerGrabacion()" disabled id="stopBtn" class="stop">⏹️ Detener</button>
+        <button type="button" onclick="iniciarGrabacion()">🎙️ Record your voice voz</button>
+        <button type="button" onclick="detenerGrabacion()" disabled id="stopBtn" class="stop">⏹️ Stop</button>
       </div>
     </div>
 
     <div class="seccion">
-      <label for="audioInput"><strong>O sube un archivo MP3/WAV</strong></label>
+      <label for="audioInput"><strong>Or upload an MP3/WAV file</strong></label>
       <input type="file" accept="audio/*" id="audioInput" onchange="cargarAudio()" />
     </div>
 
     <audio id="audioPreview" controls style="display:none;"></audio>
 
-    <button onclick="continuar()" class="btn">Continuar</button>
+    <button onclick="continuar()" class="btn">Continue</button>
   </div>
 
   <script>
