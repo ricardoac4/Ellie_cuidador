@@ -30,7 +30,7 @@
     const datos = JSON.parse(localStorage.getItem('formularioUsuario'));
     const mensaje = document.getElementById('mensaje');
     if (datos && datos.nombreUsuario) {
-      mensaje.textContent = `¡${datos.nombreUsuario}'Avatar!`;
+      mensaje.textContent = `¡${datos.nombreUsuario}'s Avatar!`;
     }
 
     const botonSonido = document.getElementById('activarSonido');
